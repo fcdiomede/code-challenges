@@ -12,6 +12,7 @@ def print_recursively(item_list):
 # print_recursively(["apple"])
 # print_recursively([])
 
+#challenge 2
 #Write a recursive function that prints the numbers 1 through 5.
 
 def print_1_through_5_recursively(num=1):
@@ -28,4 +29,27 @@ def print_1_through_5_recursively(num=1):
     print(num)
     print_1_through_5_recursively(num+1)
 
-print_1_through_5_recursively()
+# print_1_through_5_recursively()
+
+#challenge 3
+#Write a recursive function that takes a list of numbers and returns the largest number in the list.
+
+def largest_num(num_list, max_n=None):
+    print(max_n)
+
+    if len(num_list) > 0 and max_n is None:
+        max_n = num_list[0]
+
+    if len(num_list) <= 1:
+        return max_n
+    
+    n = num_list.pop()
+    if n > max_n:
+        max_n = n
+
+    return largest_num(num_list, max_n)
+
+
+print(largest_num([1,2,3,4,5]))
+print(largest_num([9,5,7,1]))
+print(largest_num([]))
