@@ -36,4 +36,35 @@ b = [2,6,9]
 #i-b: 1
 #[1,2,3,5,6,9]
 
-print(sort_ab(a,b))
+# print(sort_ab(a,b))
+
+#missing number
+def quick_sort(nums):
+
+    if len(nums) <= 1:
+        return nums
+
+    midpoint = len(nums) // 2
+    
+    lo, equal, high = [], [], []
+
+    for num in nums:
+        if num < nums[midpoint]:
+            lo.append(num)
+        elif num == nums[midpoint]:
+            equal.append(num)
+        else:
+            high.append(num)
+    
+    return quick_sort(lo) + equal + quick_sort(high)
+
+
+def missing_number(nums, max):
+    sorted_nums = quick_sort(nums)
+    
+    for i in range(max):
+        if sorted_nums[i] != i+1:
+            return i+1
+
+print(missing_number([2, 1, 4, 3, 6, 5, 7, 10, 9], 10))
+
