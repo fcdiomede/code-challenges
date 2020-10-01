@@ -35,7 +35,6 @@ def print_1_through_5_recursively(num=1):
 #Write a recursive function that takes a list of numbers and returns the largest number in the list.
 
 def largest_num(num_list, max_n=None):
-    print(max_n)
 
     if len(num_list) > 0 and max_n is None:
         max_n = num_list[0]
@@ -50,6 +49,13 @@ def largest_num(num_list, max_n=None):
     return largest_num(num_list, max_n)
 
 
-print(largest_num([1,2,3,4,5]))
-print(largest_num([9,5,7,1]))
-print(largest_num([]))
+# print(largest_num([1,2,3,4,5]))
+# print(largest_num([5,7,1,9]))
+# print(largest_num([]))
+
+#challenge 4
+#Write a recursive function that takes a list of numbers and returns a list where all numbers are doubled.
+
+# def double_nums(nums):
+
+# print(double_nums([1,2,3,4,5]))
