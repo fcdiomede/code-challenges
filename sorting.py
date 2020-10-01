@@ -73,4 +73,41 @@ def mathy_missing_number(nums, max):
 
     return expected - sum(nums)
 
-print(mathy_missing_number([2, 1, 4, 3, 6, 5, 7, 10, 9], 10))
+# print(mathy_missing_number([2, 1, 4, 3, 6, 5, 7, 10, 9], 10))
+
+#coins
+#You have an endless supply of dimes and pennies. How many different amounts of 
+#total change can you make using exactly num_coins number coins?
+# For example, when num_coins = 3, you can create 4 different kinds of change:
+
+# 3 cents from penny + penny + penny
+
+# 12 cents dime + penny + penny
+
+# 21 cents from dime + dime + penny
+
+# 30 cents from dime + dime + dime
+
+# So, you should have a function that returns the set {3, 12, 21, 30} when num_coins is 3.
+
+#first, add together number of coins if it was all pennies
+#then, would switch each out for a dime (add 9 to my sum)
+#do this a number of times equal to how many coins I had. 
+
+def coins(num_coins):
+    #start my change value in number of pennies
+    current_change = num_coins
+
+    #initalize a set with my current change val
+    change = {current_change}
+    num_dimes = 0
+
+    while num_dimes < num_coins:
+        current_change += 9
+        change.add(current_change)
+        num_dimes += 1
+    
+    return change
+
+print(coins(1))
+print(coins(3))
