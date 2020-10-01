@@ -109,5 +109,31 @@ def coins(num_coins):
     
     return change
 
-print(coins(1))
-print(coins(3))
+# print(coins(1))
+# print(coins(3))
+
+#implement insertion sort
+def insertion_sort(alist):
+    """Given a list, sort it using insertion sort."""
+    for index in range(1,len(alist)):
+        #item to be inserted in correct position
+        key = alist[index]
+        #look to the right of item I want to insert
+        sublist_index = index - 1
+
+        #while I haven't reached the end of the sublist or key item is smaller
+        while sublist_index >= 0 and key < alist[sublist_index]:
+            #want to shift larger item over
+            alist[sublist_index + 1] = alist[sublist_index]
+            #decrement by 1 so I look at next item over to the left on next
+            #iteration
+            sublist_index -= 1
+        #once I have stopped looping because I am either at beginging of list
+        #or because I found an item that is smaller than the key, insert the key
+        #to the right
+        alist[sublist_index+1] = key
+    
+    return alist
+
+
+
