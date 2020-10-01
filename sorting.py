@@ -66,5 +66,11 @@ def missing_number(nums, max):
         if sorted_nums[i] != i+1:
             return i+1
 
-print(missing_number([2, 1, 4, 3, 6, 5, 7, 10, 9], 10))
+# print(missing_number([2, 1, 4, 3, 6, 5, 7, 10, 9], 10))
 
+def mathy_missing_number(nums, max):
+    expected = sum(range(max+1))
+
+    return expected - sum(nums)
+
+print(mathy_missing_number([2, 1, 4, 3, 6, 5, 7, 10, 9], 10))
