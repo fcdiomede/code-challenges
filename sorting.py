@@ -135,5 +135,45 @@ def insertion_sort(alist):
     
     return alist
 
+#merge sort
+
+#base case - list of one
+#merge already sorted lists together
+
+def merge_sort(lst):
+
+    if len(lst) <= 1:
+        return lst
+
+    midpoint = len(lst) // 2
+    lst1 = merge_sort(lst[:midpoint])
+    lst2 = merge_sort(lst[midpoint:])
+
+    return make_merge(lst1, lst2)
+
+def make_merge(lst1, lst2):
+    print("list 1: ", lst1)
+    print("list 2: ", lst2)
+
+    result = []
+    index_1 = 0
+    index_2 = 0
+
+    while index_1 < len(lst1) and index_2 < len(lst2):
+        if lst1[index_1] <= lst2[index_2]:
+            result.append(lst1[index_1])
+            index_1 += 1
+        else:
+            result.append(lst2[index_2])
+            index_2 += 1
+    
+    if index_1 == len(lst1):
+        result.extend(lst2[index_2:])
+    else:
+        result.extend(lst1[index_1:])
+    
+    return result
+
+
 
 
